@@ -1,0 +1,67 @@
+# This is a shell archive.  Save it in a file, remove anything before
+# this line, and then unpack it by entering "sh file".  Note, it may
+# create directories; files and directories will be owned by you and
+# have default permissions.
+#
+# This archive contains:
+#
+#	py-pew
+#	py-pew/Makefile
+#	py-pew/distinfo
+#	py-pew/pkg-descr
+#
+echo c - py-pew
+mkdir -p py-pew > /dev/null 2>&1
+echo x - py-pew/Makefile
+sed 's/^X//' >py-pew/Makefile << 'END-of-py-pew/Makefile'
+X# Created by: Shin Fujishiro <snsinfu@gmail.com>
+X# $FreeBSD$
+X
+XPORTNAME=	pew
+XPORTVERSION=	1.1.1
+XCATEGORIES=	devel python
+XMASTER_SITES=	CHEESESHOP
+XPKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+X
+XMAINTAINER=	snsinfu@gmail.com
+XCOMMENT=	Tool to manage multiple virtualenvs written in pure python
+X
+XLICENSE=	MIT
+X
+XRUN_DEPENDS?=	${PYTHON_PKGNAMEPREFIX}virtualenv>=1.11:devel/py-virtualenv \
+X		${PYTHON_PKGNAMEPREFIX}virtualenv-clone>=0.2.5:devel/py-virtualenv-clone
+X
+XUSES=		python shebangfix
+XUSE_PYTHON=	distutils autoplist concurrent
+X
+XNO_ARCH=	yes
+XSHEBANG_FILES=	pew/shell_config/complete_deploy
+X
+X.include <bsd.port.pre.mk>
+X
+X.if ${PYTHON_REL} < 3000
+XRUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}backports.shutil_get_terminal_size>=0:devel/py-backports.shutil_get_terminal_size \
+X		${PYTHON_PKGNAMEPREFIX}shutilwhich>=0:sysutils/py-shutilwhich
+X.endif
+X.if ${PYTHON_REL} < 3400
+XRUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}pathlib>=0:devel/py-pathlib
+X.endif
+X
+X.include <bsd.port.post.mk>
+END-of-py-pew/Makefile
+echo x - py-pew/distinfo
+sed 's/^X//' >py-pew/distinfo << 'END-of-py-pew/distinfo'
+XSHA256 (pew-1.1.1.tar.gz) = bcb7dce35b9fd05024b772094e54b44740d2a523dd0e199a6a1b336804e112c7
+XSIZE (pew-1.1.1.tar.gz) = 19629
+END-of-py-pew/distinfo
+echo x - py-pew/pkg-descr
+sed 's/^X//' >py-pew/pkg-descr << 'END-of-py-pew/pkg-descr'
+XPython Env Wrapper is a set of commands to manage multiple virtual
+Xenvironments. Pew can create, delete and copy your environments, using a
+Xsingle command to switch to them wherever you are, while keeping them in a
+Xsingle (configurable) location.
+X
+XWWW: https://github.com/berdario/pew
+END-of-py-pew/pkg-descr
+exit
+
