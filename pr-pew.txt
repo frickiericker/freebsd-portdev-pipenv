@@ -1,0 +1,12 @@
+New port: devel/py-pew: Tool to manage multiple virtualenvs
+
+Python Env Wrapper is a set of commands to manage multiple virtual
+environments. Pew can create, delete and copy your environments, using a
+single command to switch to them wherever you are, while keeping them in a
+single (configurable) location.
+
+WWW: https://github.com/berdario/pew
+
+---
+Passed portlint -ACN
+Passed poudriere testport (python=2.7 and python=3.6 on 11.1-RELEASE/amd64)
