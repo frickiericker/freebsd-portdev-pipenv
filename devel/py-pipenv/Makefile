@@ -1,4 +1,3 @@
-# Created by: Shin Fujishiro <snsinfu@gmail.com>
 # $FreeBSD$
 
 PORTNAME=	pipenv
