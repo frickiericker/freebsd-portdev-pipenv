@@ -21,6 +21,7 @@ RUN_DEPENDS?=	${PYTHON_PKGNAMEPREFIX}virtualenv>=0:devel/py-virtualenv \
 
 USES=		python
 USE_PYTHON=	distutils autoplist concurrent
+
 NO_ARCH=	yes
 
 .include <bsd.port.mk>
