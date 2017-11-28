@@ -11,7 +11,7 @@ COMMENT=	Tool to manage multiple virtualenvs written in pure python
 
 LICENSE=	MIT
 
-RUN_DEPENDS?=	${PYTHON_PKGNAMEPREFIX}virtualenv>=1.11:devel/py-virtualenv \
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>=1.11:devel/py-virtualenv \
 		${PYTHON_PKGNAMEPREFIX}virtualenv-clone>=0.2.5:devel/py-virtualenv-clone
 
 USES=		python shebangfix

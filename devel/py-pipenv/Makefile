@@ -12,7 +12,7 @@ COMMENT=	A dependency manager for Python projects
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS?=	${PYTHON_PKGNAMEPREFIX}virtualenv>=0:devel/py-virtualenv \
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>=0:devel/py-virtualenv \
 		${PYTHON_PKGNAMEPREFIX}pew>=0.1.26:devel/py-pew \
 		${PYTHON_PKGNAMEPREFIX}pip>=9.0.1:devel/py-pip \
 		${PYTHON_PKGNAMEPREFIX}requests>=2.18.1:www/py-requests \
