@@ -1,0 +1,12 @@
+New port: devel/py-pipenv: A dependency manager for Python projects
+
+Pipenv is a tool that aims to bring the best of all packaging worlds
+(bundler, composer, npm, cargo, yarn, etc.) to the Python world.
+
+WWW: https://docs.pipenv.org/
+
+---
+Passed portlint -ACN
+Passed poudriere testport (python=2.7 and python=3.6 on 11.1-RELEASE/amd64)
+
+This port depends on devel/py-flake8 and hence on #219648.
