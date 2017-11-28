@@ -14,7 +14,6 @@ echo c - py-pew
 mkdir -p py-pew > /dev/null 2>&1
 echo x - py-pew/Makefile
 sed 's/^X//' >py-pew/Makefile << 'END-of-py-pew/Makefile'
-X# Created by: Shin Fujishiro <snsinfu@gmail.com>
 X# $FreeBSD$
 X
 XPORTNAME=	pew
@@ -28,7 +27,7 @@ XCOMMENT=	Tool to manage multiple virtualenvs written in pure python
 X
 XLICENSE=	MIT
 X
-XRUN_DEPENDS?=	${PYTHON_PKGNAMEPREFIX}virtualenv>=1.11:devel/py-virtualenv \
+XRUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>=1.11:devel/py-virtualenv \
 X		${PYTHON_PKGNAMEPREFIX}virtualenv-clone>=0.2.5:devel/py-virtualenv-clone
 X
 XUSES=		python shebangfix
