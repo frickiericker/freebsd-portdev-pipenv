@@ -14,7 +14,6 @@ echo c - py-pipenv
 mkdir -p py-pipenv > /dev/null 2>&1
 echo x - py-pipenv/Makefile
 sed 's/^X//' >py-pipenv/Makefile << 'END-of-py-pipenv/Makefile'
-X# Created by: Shin Fujishiro <snsinfu@gmail.com>
 X# $FreeBSD$
 X
 XPORTNAME=	pipenv
@@ -24,12 +23,12 @@ XMASTER_SITES=	CHEESESHOP
 XPKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 X
 XMAINTAINER=	snsinfu@gmail.com
-XCOMMENT=	Python Development Workflow for Humans
+XCOMMENT=	A dependency manager for Python projects
 X
 XLICENSE=	MIT
 XLICENSE_FILE=	${WRKSRC}/LICENSE
 X
-XRUN_DEPENDS?=	${PYTHON_PKGNAMEPREFIX}virtualenv>=0:devel/py-virtualenv \
+XRUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>=0:devel/py-virtualenv \
 X		${PYTHON_PKGNAMEPREFIX}pew>=0.1.26:devel/py-pew \
 X		${PYTHON_PKGNAMEPREFIX}pip>=9.0.1:devel/py-pip \
 X		${PYTHON_PKGNAMEPREFIX}requests>=2.18.1:www/py-requests \
@@ -38,6 +37,7 @@ X		${PYTHON_PKGNAMEPREFIX}urllib3>=1.21.1:net/py-urllib3
 X
 XUSES=		python
 XUSE_PYTHON=	distutils autoplist concurrent
+X
 XNO_ARCH=	yes
 X
 X.include <bsd.port.mk>
