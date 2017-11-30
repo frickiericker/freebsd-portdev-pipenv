@@ -23,11 +23,11 @@ SHEBANG_FILES=	pew/shell_config/complete_deploy
 .include <bsd.port.pre.mk>
 
 .if ${PYTHON_REL} < 3000
-RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}backports.shutil_get_terminal_size>=0:devel/py-backports.shutil_get_terminal_size@${FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}shutilwhich>=0:sysutils/py-shutilwhich@${FLAVOR}
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}backports.shutil_get_terminal_size>0:devel/py-backports.shutil_get_terminal_size@${FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}shutilwhich>0:sysutils/py-shutilwhich@${FLAVOR}
 .endif
 .if ${PYTHON_REL} < 3400
-RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}pathlib>=0:devel/py-pathlib@${FLAVOR}
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}pathlib>0:devel/py-pathlib@${FLAVOR}
 .endif
 
 .include <bsd.port.post.mk>
