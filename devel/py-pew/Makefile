@@ -11,8 +11,8 @@ COMMENT=	Tool to manage multiple virtualenvs written in pure python
 
 LICENSE=	MIT
 
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>=1.11:devel/py-virtualenv \
-		${PYTHON_PKGNAMEPREFIX}virtualenv-clone>=0.2.5:devel/py-virtualenv-clone
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>=1.11:devel/py-virtualenv@${FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}virtualenv-clone>=0.2.5:devel/py-virtualenv-clone@${FLAVOR}
 
 USES=		python shebangfix
 USE_PYTHON=	distutils autoplist concurrent
@@ -23,11 +23,11 @@ SHEBANG_FILES=	pew/shell_config/complete_deploy
 .include <bsd.port.pre.mk>
 
 .if ${PYTHON_REL} < 3000
-RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}backports.shutil_get_terminal_size>=0:devel/py-backports.shutil_get_terminal_size \
-		${PYTHON_PKGNAMEPREFIX}shutilwhich>=0:sysutils/py-shutilwhich
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}backports.shutil_get_terminal_size>=0:devel/py-backports.shutil_get_terminal_size@${FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}shutilwhich>=0:sysutils/py-shutilwhich@${FLAVOR}
 .endif
 .if ${PYTHON_REL} < 3400
-RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}pathlib>=0:devel/py-pathlib
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}pathlib>=0:devel/py-pathlib@${FLAVOR}
 .endif
 
 .include <bsd.port.post.mk>
