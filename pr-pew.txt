@@ -10,3 +10,15 @@ WWW: https://github.com/berdario/pew
 ---
 Passed portlint -ACN
 Passed poudriere testport (python=2.7 and python=3.6 on 11.1-RELEASE/amd64)
+
+================================================================================
+
+New port shar
+
+Add FLAVORS support.
+
+portlint: No error
+testport: No error (11.1-RELEASE, amd64, @py27 and @py36)
+
+Although portlint reports "no port directory" warnings caused by ${FLAVOR} in
+RUN_DEPENDS, the port builds and installs successfully.
