@@ -1,5 +1,7 @@
 Patch
 
+Add missing dependencies.
+
 portlint: No error
 testport: No error (11.1-RELEASE, amd64, @py27 and @py36)
 
