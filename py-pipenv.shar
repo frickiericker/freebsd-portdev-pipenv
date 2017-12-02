@@ -23,7 +23,7 @@ XMASTER_SITES=	CHEESESHOP
 XPKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 X
 XMAINTAINER=	snsinfu@gmail.com
-XCOMMENT=	A dependency manager for Python projects
+XCOMMENT=	Dependency manager for Python projects
 X
 XLICENSE=	MIT
 XLICENSE_FILE=	${WRKSRC}/LICENSE

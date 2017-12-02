@@ -7,7 +7,7 @@ MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	snsinfu@gmail.com
-COMMENT=	A dependency manager for Python projects
+COMMENT=	Dependency manager for Python projects
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
