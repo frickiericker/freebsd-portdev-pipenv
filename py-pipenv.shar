@@ -28,12 +28,12 @@ X
 XLICENSE=	MIT
 XLICENSE_FILE=	${WRKSRC}/LICENSE
 X
-XRUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>=0:devel/py-virtualenv \
-X		${PYTHON_PKGNAMEPREFIX}pew>=0.1.26:devel/py-pew \
-X		${PYTHON_PKGNAMEPREFIX}pip>=9.0.1:devel/py-pip \
-X		${PYTHON_PKGNAMEPREFIX}requests>=2.18.1:www/py-requests \
-X		${PYTHON_PKGNAMEPREFIX}flake8>=3.0.0:devel/py-flake8 \
-X		${PYTHON_PKGNAMEPREFIX}urllib3>=1.21.1:net/py-urllib3
+XRUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>0:devel/py-virtualenv@${FLAVOR} \
+X		${PYTHON_PKGNAMEPREFIX}pew>=0.1.26:devel/py-pew@${FLAVOR} \
+X		${PYTHON_PKGNAMEPREFIX}pip>=9.0.1:devel/py-pip@${FLAVOR} \
+X		${PYTHON_PKGNAMEPREFIX}requests>=2.18.1:www/py-requests@${FLAVOR} \
+X		${PYTHON_PKGNAMEPREFIX}flake8>=3.0.0:devel/py-flake8@${FLAVOR} \
+X		${PYTHON_PKGNAMEPREFIX}urllib3>=1.21.1:net/py-urllib3@${FLAVOR}
 X
 XUSES=		python
 XUSE_PYTHON=	distutils autoplist concurrent

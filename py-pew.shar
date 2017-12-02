@@ -27,8 +27,8 @@ XCOMMENT=	Tool to manage multiple virtualenvs written in pure python
 X
 XLICENSE=	MIT
 X
-XRUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>=1.11:devel/py-virtualenv \
-X		${PYTHON_PKGNAMEPREFIX}virtualenv-clone>=0.2.5:devel/py-virtualenv-clone
+XRUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>=1.11:devel/py-virtualenv@${FLAVOR} \
+X		${PYTHON_PKGNAMEPREFIX}virtualenv-clone>=0.2.5:devel/py-virtualenv-clone@${FLAVOR}
 X
 XUSES=		python shebangfix
 XUSE_PYTHON=	distutils autoplist concurrent
@@ -39,11 +39,11 @@ X
 X.include <bsd.port.pre.mk>
 X
 X.if ${PYTHON_REL} < 3000
-XRUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}backports.shutil_get_terminal_size>=0:devel/py-backports.shutil_get_terminal_size \
-X		${PYTHON_PKGNAMEPREFIX}shutilwhich>=0:sysutils/py-shutilwhich
+XRUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}backports.shutil_get_terminal_size>0:devel/py-backports.shutil_get_terminal_size@${FLAVOR} \
+X		${PYTHON_PKGNAMEPREFIX}shutilwhich>0:sysutils/py-shutilwhich@${FLAVOR}
 X.endif
 X.if ${PYTHON_REL} < 3400
-XRUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}pathlib>=0:devel/py-pathlib
+XRUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}pathlib>0:devel/py-pathlib@${FLAVOR}
 X.endif
 X
 X.include <bsd.port.post.mk>
