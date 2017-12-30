@@ -1,0 +1,10 @@
+AddressFamily inet
+Port 22
+VersionAddendum none
+
+PermitRootLogin yes
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+PubkeyAuthentication yes
+
+Subsystem sftp /usr/libexec/sftp-server

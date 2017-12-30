@@ -1,0 +1,74 @@
+- hosts: all
+  become: true
+  vars:
+    freebsd: 11.1-RELEASE
+    arch: amd64
+    jail: 11_1_R_amd64
+    tree: test
+    basedir: /poudriere
+    ansible_python_interpreter: /usr/local/bin/python
+
+  gather_facts: false
+  pre_tasks:
+    - name: python is installed
+      raw: pkg install -y python
+      register: install_python
+      changed_when: "'INSTALLED' in install_python.stdout"
+
+    - name: facts are gathered
+      setup:
+
+  tasks:
+    - name: sshd_config is up to date
+      copy: src=sshd_config dest=/etc/ssh/sshd_config
+      notify: restart sshd
+
+    - name: required packages are installed
+      pkgng: name="{{item}}" state=present
+      with_items:
+        - subversion
+        - poudriere
+        - portlint
+
+    - name: make.conf is up to date
+      copy: src=make.conf dest=/etc/make.conf
+
+    - name: poudriere.conf is up to date
+      template: src=poudriere.conf.j2 dest=/usr/local/etc/poudriere.conf
+
+    - name: ports tree is up to date
+      subversion:
+        repo: https://svn.freebsd.org/ports/head
+        dest: /usr/ports
+        force: yes
+        update: yes
+      register: ports_update
+
+    - name: old poudriere is purged
+      pkgng: name=poudriere state=absent
+      when: ports_update|succeeded
+
+    - name: latest poudriere is installed
+      portinstall: name=ports-mgmt/poudriere state=present
+
+    - name: proposed ports exist
+      copy: src="{{item}}/" dest="/usr/ports/{{item}}/"
+      with_items:
+        - devel/py-pew
+        - devel/py-pipenv
+
+    - name: poudriere jail is created
+      command: poudriere jail -c -j "{{jail}}" -v "{{freebsd}}" -a "{{arch}}"
+      register: create_jail
+      failed_when: create_jail.rc not in [0, 2]
+      changed_when: create_jail.rc == 0
+
+    - name: poudriere recognizes the ports tree
+      command: poudriere ports -c -f none -m null -M /usr/ports -p "{{tree}}"
+      register: import_ports
+      failed_when: import_ports.rc not in [0, 2]
+      changed_when: import_ports.rc == 0
+
+  handlers:
+    - name: restart sshd
+      service: name=sshd state=restarted
