@@ -46,12 +46,18 @@
         update: yes
       register: ports_update
 
-    - name: old poudriere is purged
-      pkgng: name=poudriere state=absent
+    - name: old test tools are purged
+      pkgng: name="{{items}}" state=absent
       when: ports_update|succeeded
+      with_items:
+        - poudriere
+        - portlint
 
-    - name: latest poudriere is installed
-      portinstall: name=ports-mgmt/poudriere state=present
+    - name: latest test tools are installed
+      portinstall: name="{{item}}" state=present
+      with_items:
+        - ports-mgmt/poudriere
+        - ports-mgmt/portlint
 
     - name: proposed ports exist
       copy: src="{{item}}/" dest="/usr/ports/{{item}}/"
