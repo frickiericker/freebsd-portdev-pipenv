@@ -29,8 +29,8 @@ New port shar
 
 Update to 9.0.1.
 
-portlint: No error (-ACN)
-testport: No error (11.1-RELEASE, amd64, py27/py36 flavors)
+portlint: OK (looks fine.)
+testport: OK (11.1-RELEASE, amd64, py27/py36 flavors)
 
 ================================================================================
 
