@@ -31,6 +31,7 @@
         - subversion
         - poudriere
         - portlint
+        - mosh
 
     - name: make.conf is up to date
       copy: src=make.conf dest=/etc/make.conf
