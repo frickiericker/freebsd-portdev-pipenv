@@ -47,7 +47,7 @@
       register: ports_update
 
     - name: old test tools are purged
-      pkgng: name="{{items}}" state=absent
+      pkgng: name="{{item}}" state=absent
       when: ports_update|succeeded
       with_items:
         - poudriere
