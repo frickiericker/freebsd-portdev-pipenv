@@ -19,3 +19,26 @@ Concurrent install is possible with a patch:
 
  .include <bsd.port.mk>
 ```
+
+## How to update checksum
+
+```
+make -C /usr/ports/devel/py-pew makesum
+make -C /usr/ports/devel/py-pipenv makesum
+```
+
+TODO: Fetch back with ansible.
+
+## How to porttest
+
+```
+poudriere testport -j 11_1_R_amd64 -p test devel/py-pipenv@py27
+poudriere testport -j 11_1_R_amd64 -p test devel/py-pipenv@py36
+```
+
+## How to build a shar
+
+```
+cd devel
+shar $(find py-pipenv -print) > py-pipenv.shar
+```
