@@ -32,6 +32,7 @@
         - poudriere
         - portlint
         - mosh
+        - tmux
 
     - name: make.conf is up to date
       copy: src=make.conf dest=/etc/make.conf
