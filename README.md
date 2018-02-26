@@ -20,15 +20,6 @@ Concurrent install is possible with a patch:
  .include <bsd.port.mk>
 ```
 
-## How to update checksum
-
-```
-make -C /usr/ports/devel/py-pew makesum
-make -C /usr/ports/devel/py-pipenv makesum
-```
-
-TODO: Fetch back with ansible.
-
 ## How to porttest
 
 ```

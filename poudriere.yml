@@ -67,6 +67,18 @@
         - devel/py-pew
         - devel/py-pipenv
 
+    - name: checksum is generated
+      command: make -C "/usr/ports/{{item}}" makesum
+      with_items:
+        - devel/py-pew
+        - devel/py-pipenv
+
+    - name: checksum is fetched back
+      fetch: src="/usr/ports/{{item}}/distinfo" dest="{{item}}/" flat=yes
+      with_items:
+        - devel/py-pew
+        - devel/py-pipenv
+
     - name: poudriere jail is created
       command: poudriere jail -c -j "{{jail}}" -v "{{freebsd}}" -a "{{arch}}"
       register: create_jail
