@@ -36,7 +36,7 @@ testport: OK (11.1-RELEASE, amd64, py27/py36 flavors)
 
 New port shar
 
-Update to 9.1.0.
+Update to 10.1.0.
 
-portlint: FIXME: OK (looks fine.)
-testport: FIXME: OK (11.1-RELEASE, amd64, py27/py36 flavors)
+portlint: OK (looks fine.)
+testport: OK (11.1-RELEASE, amd64, py27/py36 flavors)

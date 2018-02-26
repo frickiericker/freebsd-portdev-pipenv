@@ -22,3 +22,12 @@ testport: No error (11.1-RELEASE, amd64, py27 and py36 flavors)
 
 Although portlint reports "no port directory" warnings caused by ${FLAVOR} in
 RUN_DEPENDS, the port builds and installs successfully.
+
+================================================================================
+
+New port shar
+
+Update to 1.1.2.
+
+portlint: OK (looks fine.)
+testport: OK (11.1-RELEASE, amd64, py27/py36 flavors)
