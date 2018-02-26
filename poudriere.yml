@@ -4,11 +4,13 @@
     proposed_ports:
       - devel/py-pew
       - devel/py-pipenv
+
     freebsd: 11.1-RELEASE
     arch: amd64
     jail: 11_1_R_amd64
     tree: test
     basedir: /poudriere
+
     ansible_python_interpreter: /usr/local/bin/python
 
   gather_facts: no
@@ -102,7 +104,7 @@
       pkgng:
         name: "{{ item }}"
         state: absent
-      when: ports_update|succeeded
+      when: ports_update | succeeded
       with_items:
         - poudriere
         - portlint
