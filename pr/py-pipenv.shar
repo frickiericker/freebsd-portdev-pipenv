@@ -17,7 +17,7 @@ sed 's/^X//' >py-pipenv/Makefile << '31ad15b9b6cd083ffe44525a00a5f613'
 X# $FreeBSD$
 X
 XPORTNAME=	pipenv
-XPORTVERSION=	9.1.0
+XPORTVERSION=	10.1.0
 XCATEGORIES=	devel python
 XMASTER_SITES=	CHEESESHOP
 XPKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -44,9 +44,9 @@ X.include <bsd.port.mk>
 31ad15b9b6cd083ffe44525a00a5f613
 echo x - py-pipenv/distinfo
 sed 's/^X//' >py-pipenv/distinfo << '449aa0ad8e81ec26d3bfa2ada79d00fa'
-XTIMESTAMP = 1519422238
-XSHA256 (pipenv-9.1.0.tar.gz) = df37f03f84e8e7dd0ea1166d3e4bbd505332cdc1f5b10feb1435d52506f0c670
-XSIZE (pipenv-9.1.0.tar.gz) = 3856276
+XTIMESTAMP = 1519669322
+XSHA256 (pipenv-10.1.0.tar.gz) = 3732350e3cd8cc033d66748c418bab4b018dc0a4fcf1687f17a103ac44eac0c6
+XSIZE (pipenv-10.1.0.tar.gz) = 3858815
 449aa0ad8e81ec26d3bfa2ada79d00fa
 echo x - py-pipenv/pkg-descr
 sed 's/^X//' >py-pipenv/pkg-descr << '4b0bf879764bb1a0a016c46b2c6f8e2e'
