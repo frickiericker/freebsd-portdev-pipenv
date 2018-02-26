@@ -26,3 +26,7 @@ Concurrent install is possible with a patch:
 poudriere testport -j 11_1_R_amd64 -p test devel/py-pipenv@py27
 poudriere testport -j 11_1_R_amd64 -p test devel/py-pipenv@py36
 ```
+
+## Resources
+
+- https://wiki.freebsd.org/KubilayKocak/Bugzilla/DosAndDonts
