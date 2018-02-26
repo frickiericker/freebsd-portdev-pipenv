@@ -13,11 +13,11 @@
 echo c - py-pew
 mkdir -p py-pew > /dev/null 2>&1
 echo x - py-pew/Makefile
-sed 's/^X//' >py-pew/Makefile << 'END-of-py-pew/Makefile'
+sed 's/^X//' >py-pew/Makefile << '14aa81ed74bdd4dfd7b2e5f176769c3c'
 X# $FreeBSD$
 X
 XPORTNAME=	pew
-XPORTVERSION=	1.1.1
+XPORTVERSION=	1.1.2
 XCATEGORIES=	devel python
 XMASTER_SITES=	CHEESESHOP
 XPKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -47,20 +47,21 @@ XRUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}pathlib>0:devel/py-pathlib@${FLAVOR}
 X.endif
 X
 X.include <bsd.port.post.mk>
-END-of-py-pew/Makefile
+14aa81ed74bdd4dfd7b2e5f176769c3c
 echo x - py-pew/distinfo
-sed 's/^X//' >py-pew/distinfo << 'END-of-py-pew/distinfo'
-XSHA256 (pew-1.1.1.tar.gz) = bcb7dce35b9fd05024b772094e54b44740d2a523dd0e199a6a1b336804e112c7
-XSIZE (pew-1.1.1.tar.gz) = 19629
-END-of-py-pew/distinfo
+sed 's/^X//' >py-pew/distinfo << '278aeb86f6ef0c3d6d836bdf76dbbd47'
+XTIMESTAMP = 1519422237
+XSHA256 (pew-1.1.2.tar.gz) = b8312728526c9010295c88215c95a1b1731fdbd1a568f728e069932bd0545611
+XSIZE (pew-1.1.2.tar.gz) = 19637
+278aeb86f6ef0c3d6d836bdf76dbbd47
 echo x - py-pew/pkg-descr
-sed 's/^X//' >py-pew/pkg-descr << 'END-of-py-pew/pkg-descr'
+sed 's/^X//' >py-pew/pkg-descr << 'adcf0a801df9de8312dd60645b9fbd2d'
 XPython Env Wrapper is a set of commands to manage multiple virtual
 Xenvironments. Pew can create, delete and copy your environments, using a
 Xsingle command to switch to them wherever you are, while keeping them in a
 Xsingle (configurable) location.
 X
 XWWW: https://github.com/berdario/pew
-END-of-py-pew/pkg-descr
+adcf0a801df9de8312dd60645b9fbd2d
 exit
 

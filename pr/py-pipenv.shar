@@ -13,11 +13,11 @@
 echo c - py-pipenv
 mkdir -p py-pipenv > /dev/null 2>&1
 echo x - py-pipenv/Makefile
-sed 's/^X//' >py-pipenv/Makefile << 'END-of-py-pipenv/Makefile'
+sed 's/^X//' >py-pipenv/Makefile << '31ad15b9b6cd083ffe44525a00a5f613'
 X# $FreeBSD$
 X
 XPORTNAME=	pipenv
-XPORTVERSION=	9.0.1
+XPORTVERSION=	9.1.0
 XCATEGORIES=	devel python
 XMASTER_SITES=	CHEESESHOP
 XPKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -41,19 +41,19 @@ X
 XNO_ARCH=	yes
 X
 X.include <bsd.port.mk>
-END-of-py-pipenv/Makefile
+31ad15b9b6cd083ffe44525a00a5f613
 echo x - py-pipenv/distinfo
-sed 's/^X//' >py-pipenv/distinfo << 'END-of-py-pipenv/distinfo'
-XTIMESTAMP = 1514666524
-XSHA256 (pipenv-9.0.1.tar.gz) = e1fb0aa2571c9c5a1b403ac782e7da09719625ac51a1238b0e6c5d157c3c679a
-XSIZE (pipenv-9.0.1.tar.gz) = 3860050
-END-of-py-pipenv/distinfo
+sed 's/^X//' >py-pipenv/distinfo << '449aa0ad8e81ec26d3bfa2ada79d00fa'
+XTIMESTAMP = 1519422238
+XSHA256 (pipenv-9.1.0.tar.gz) = df37f03f84e8e7dd0ea1166d3e4bbd505332cdc1f5b10feb1435d52506f0c670
+XSIZE (pipenv-9.1.0.tar.gz) = 3856276
+449aa0ad8e81ec26d3bfa2ada79d00fa
 echo x - py-pipenv/pkg-descr
-sed 's/^X//' >py-pipenv/pkg-descr << 'END-of-py-pipenv/pkg-descr'
+sed 's/^X//' >py-pipenv/pkg-descr << '4b0bf879764bb1a0a016c46b2c6f8e2e'
 XPipenv is a tool that aims to bring the best of all packaging worlds
 X(bundler, composer, npm, cargo, yarn, etc.) to the Python world.
 X
 XWWW: https://docs.pipenv.org/
-END-of-py-pipenv/pkg-descr
+4b0bf879764bb1a0a016c46b2c6f8e2e
 exit
 
