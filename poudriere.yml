@@ -1,5 +1,5 @@
 - hosts: all
-  become: true
+
   vars:
     freebsd: 11.1-RELEASE
     arch: amd64
@@ -8,7 +8,8 @@
     basedir: /poudriere
     ansible_python_interpreter: /usr/local/bin/python
 
-  gather_facts: false
+  gather_facts: no
+
   pre_tasks:
     - name: python is installed
       raw: pkg install -y python
@@ -18,15 +19,21 @@
     - name: facts are gathered
       setup:
 
+  become: yes
+
   tasks:
     - name: sshd_config is up to date
-      copy: src=sshd_config dest=/etc/ssh/sshd_config
+      copy:
+        src: sshd_config
+        dest: /etc/ssh/sshd_config
       notify: restart sshd
 
     - meta: flush_handlers
 
     - name: required packages are installed
-      pkgng: name="{{item}}" state=present
+      pkgng:
+        name: "{{item}}"
+        state: present
       with_items:
         - subversion
         - poudriere
@@ -35,10 +42,14 @@
         - tmux
 
     - name: make.conf is up to date
-      copy: src=make.conf dest=/etc/make.conf
+      copy:
+        src: make.conf
+        dest: /etc/make.conf
 
     - name: poudriere.conf is up to date
-      template: src=poudriere.conf.j2 dest=/usr/local/etc/poudriere.conf
+      template:
+        src: poudriere.conf.j2
+        dest: /usr/local/etc/poudriere.conf
 
     - name: ports tree is up to date
       subversion:
@@ -48,21 +59,10 @@
         update: yes
       register: ports_update
 
-    - name: old test tools are purged
-      pkgng: name="{{item}}" state=absent
-      when: ports_update|succeeded
-      with_items:
-        - poudriere
-        - portlint
-
-    - name: latest test tools are installed
-      portinstall: name="{{item}}" state=present
-      with_items:
-        - ports-mgmt/poudriere
-        - ports-mgmt/portlint
-
     - name: proposed ports exist
-      copy: src="{{item}}/" dest="/usr/ports/{{item}}/"
+      copy:
+        src: "{{item}}/"
+        dest: "/usr/ports/{{item}}/"
       with_items:
         - devel/py-pew
         - devel/py-pipenv
@@ -74,10 +74,30 @@
         - devel/py-pipenv
 
     - name: checksum is fetched back
-      fetch: src="/usr/ports/{{item}}/distinfo" dest="{{item}}/" flat=yes
+      fetch:
+        src: "/usr/ports/{{item}}/distinfo"
+        dest: "{{item}}/"
+        flat: yes
       with_items:
         - devel/py-pew
         - devel/py-pipenv
+
+    - name: old test tools are purged
+      pkgng:
+        name: "{{item}}"
+        state: absent
+      when: ports_update|succeeded
+      with_items:
+        - poudriere
+        - portlint
+
+    - name: latest test tools are installed
+      portinstall:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - ports-mgmt/poudriere
+        - ports-mgmt/portlint
 
     - name: poudriere jail is created
       command: poudriere jail -c -j "{{jail}}" -v "{{freebsd}}" -a "{{arch}}"
@@ -93,4 +113,6 @@
 
   handlers:
     - name: restart sshd
-      service: name=sshd state=restarted
+      service:
+        name: sshd
+        state: restarted
