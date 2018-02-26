@@ -62,7 +62,6 @@
         dest: /usr/ports
         force: yes
         update: yes
-      register: ports_update
 
     - name: proposed ports exist
       copy:
@@ -99,23 +98,6 @@
         dest: "./pr/"
         flat: yes
       with_items: "{{ proposed_ports }}"
-
-    - name: old test tools are purged
-      pkgng:
-        name: "{{ item }}"
-        state: absent
-      when: ports_update | succeeded
-      with_items:
-        - poudriere
-        - portlint
-
-    - name: latest test tools are installed
-      portinstall:
-        name: "{{ item }}"
-        state: present
-      with_items:
-        - ports-mgmt/poudriere
-        - ports-mgmt/portlint
 
     - name: poudriere jail is created
       command: poudriere jail -c -j "{{ jail }}" -v "{{ freebsd }}" -a "{{ arch }}"
