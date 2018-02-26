@@ -79,6 +79,25 @@
         flat: yes
       with_items: "{{ proposed_ports }}"
 
+    - name: temporary shar directory is created
+      file:
+        path: "/tmp/{{ item | dirname }}"
+        state: directory
+      with_items: "{{ proposed_ports }}"
+
+    - name: shar is generated
+      shell: |
+        cd "/usr/ports/{{ item | dirname }}"
+        shar $(find "{{ item | basename }}" -print) > "/tmp/{{ item }}.shar"
+      with_items: "{{ proposed_ports }}"
+
+    - name: shar is fetched back
+      fetch:
+        src: "/tmp/{{ item }}.shar"
+        dest: "./pr/"
+        flat: yes
+      with_items: "{{ proposed_ports }}"
+
     - name: old test tools are purged
       pkgng:
         name: "{{ item }}"
