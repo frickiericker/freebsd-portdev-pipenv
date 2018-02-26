@@ -26,10 +26,3 @@ Concurrent install is possible with a patch:
 poudriere testport -j 11_1_R_amd64 -p test devel/py-pipenv@py27
 poudriere testport -j 11_1_R_amd64 -p test devel/py-pipenv@py36
 ```
-
-## How to build a shar
-
-```
-cd devel
-shar $(find py-pipenv -print) > py-pipenv.shar
-```
