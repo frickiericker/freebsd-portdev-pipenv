@@ -27,14 +27,6 @@
   become: yes
 
   tasks:
-    - name: sshd_config is up to date
-      copy:
-        src: sshd_config
-        dest: /etc/ssh/sshd_config
-      notify: restart sshd
-
-    - meta: flush_handlers
-
     - name: required packages are installed
       pkgng:
         name: "{{ item }}"
@@ -43,7 +35,6 @@
         - subversion
         - poudriere
         - portlint
-        - mosh
         - tmux
 
     - name: make.conf is up to date
@@ -110,9 +101,3 @@
       register: import_ports
       failed_when: import_ports.rc not in [0, 2]
       changed_when: import_ports.rc == 0
-
-  handlers:
-    - name: restart sshd
-      service:
-        name: sshd
-        state: restarted
