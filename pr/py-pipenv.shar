@@ -7,8 +7,8 @@
 #
 #	py-pipenv
 #	py-pipenv/Makefile
-#	py-pipenv/distinfo
 #	py-pipenv/pkg-descr
+#	py-pipenv/distinfo
 #
 echo c - py-pipenv
 mkdir -p py-pipenv > /dev/null 2>&1
@@ -17,7 +17,7 @@ sed 's/^X//' >py-pipenv/Makefile << '31ad15b9b6cd083ffe44525a00a5f613'
 X# $FreeBSD$
 X
 XPORTNAME=	pipenv
-XPORTVERSION=	10.1.0
+XPORTVERSION=	11.0.2
 XCATEGORIES=	devel python
 XMASTER_SITES=	CHEESESHOP
 XPKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -30,10 +30,7 @@ XLICENSE_FILE=	${WRKSRC}/LICENSE
 X
 XRUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}virtualenv>0:devel/py-virtualenv@${FLAVOR} \
 X		${PYTHON_PKGNAMEPREFIX}pew>=0.1.26:devel/py-pew@${FLAVOR} \
-X		${PYTHON_PKGNAMEPREFIX}pip>=9.0.1:devel/py-pip@${FLAVOR} \
-X		${PYTHON_PKGNAMEPREFIX}requests>=2.18.1:www/py-requests@${FLAVOR} \
-X		${PYTHON_PKGNAMEPREFIX}flake8>=3.0.0:devel/py-flake8@${FLAVOR} \
-X		${PYTHON_PKGNAMEPREFIX}urllib3>=1.21.1:net/py-urllib3@${FLAVOR}
+X		${PYTHON_PKGNAMEPREFIX}pip>=9.0.1:devel/py-pip@${FLAVOR}
 X
 XUSES=		python
 XUSE_PYTHON=	distutils autoplist concurrent
@@ -42,12 +39,6 @@ XNO_ARCH=	yes
 X
 X.include <bsd.port.mk>
 31ad15b9b6cd083ffe44525a00a5f613
-echo x - py-pipenv/distinfo
-sed 's/^X//' >py-pipenv/distinfo << '449aa0ad8e81ec26d3bfa2ada79d00fa'
-XTIMESTAMP = 1519669322
-XSHA256 (pipenv-10.1.0.tar.gz) = 3732350e3cd8cc033d66748c418bab4b018dc0a4fcf1687f17a103ac44eac0c6
-XSIZE (pipenv-10.1.0.tar.gz) = 3858815
-449aa0ad8e81ec26d3bfa2ada79d00fa
 echo x - py-pipenv/pkg-descr
 sed 's/^X//' >py-pipenv/pkg-descr << '4b0bf879764bb1a0a016c46b2c6f8e2e'
 XPipenv is a tool that aims to bring the best of all packaging worlds
@@ -55,5 +46,11 @@ X(bundler, composer, npm, cargo, yarn, etc.) to the Python world.
 X
 XWWW: https://docs.pipenv.org/
 4b0bf879764bb1a0a016c46b2c6f8e2e
+echo x - py-pipenv/distinfo
+sed 's/^X//' >py-pipenv/distinfo << '449aa0ad8e81ec26d3bfa2ada79d00fa'
+XTIMESTAMP = 1520111523
+XSHA256 (pipenv-11.0.2.tar.gz) = 0796cb5078b00a26b9332a87ed137efa0c21e585dbf945d5943022e9b35e1663
+XSIZE (pipenv-11.0.2.tar.gz) = 4117997
+449aa0ad8e81ec26d3bfa2ada79d00fa
 exit
 
